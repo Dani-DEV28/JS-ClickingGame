@@ -1,7 +1,7 @@
 export default function Header() {
     return (
         <header>
-            <h1>temp</h1>
+            <h1>Spinning Logo</h1>
         </header>
     )
 }
