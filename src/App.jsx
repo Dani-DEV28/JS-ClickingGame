@@ -10,21 +10,22 @@ import './App.css'
 function App() {
   // const [count, setCount] = useState(0)
 
+  const [countLogo, setCountLogo] = useState(0);
+  const logoArray = [viteLogo, reactLogo, vueLogo];
+
   return (
     <>
       <Header/>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react, spin" alt="React logo"/>
-        </a>
-        {/* <img src={vueLogo} className= {`logo react ${false ? "spin" : ""}`} alt="React logo"/> */}
+        {logoArray.slice(0, countLogo).map((logo, i) => (
+          <img key={i} src={logo} className="logo" alt={`logo-${i}`} />
+        ))}
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <Game/>
+        <Game
+          setCountLogo = {setCountLogo} 
+        />
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
