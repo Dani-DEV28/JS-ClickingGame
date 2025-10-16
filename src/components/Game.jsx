@@ -1,45 +1,58 @@
 import {useState} from 'react'
 
-export default function Game( {setCountLogo, setSpin}) {
-    const [count, setCount] = useState(0)
-    const [money, setMoney] = useState(0)
-    const [clickValue, setClickValue] = useState(1)
+export default function Game( {setCountLogo, setSpin, setLogo}) {
+    const [playerData, setPlayerData] = useState({
+        money:0,
+        count: 0,
+        clickValue: 1,
+    })
     
     function click() {
-        setCount(prevCount => prevCount + clickValue)
-        setMoney(prevMoney => prevMoney + clickValue)
+        setPlayerData(prev =>  ({
+            ...prev,
+            money:prev.money + prev.clickValue,
+            count:prev.count + prev.clickValue
+        }))
     }
 
     function buyIncrease() {
-        if (money > 10) {
-            setMoney(prevMoney => prevMoney - 10)
-            setClickValue(prevClickValue => prevClickValue + 10)
+        if (playerData.money > 10) {
+            setPlayerData(prev =>  ({
+                ...prev,
+                money:prev.money - 10,
+                clickValue:prev.clickValue + 10
+            }))
         }
     }
 
     function buySpin() {
-        if (money > 100) {
+        if (playerData.money > 100) {
             setSpin();
-            setMoney(prevMoney => prevMoney - 100)
-            setClickValue(prevClickValue => prevClickValue + 100)
+            setPlayerData(prev =>  ({
+                ...prev,
+                money:prev.money - 100
+            }))
         }
     }
 
     function buyLogo() {
-        if (money > 50) {
+        if (playerData.money > 50) {
             setCountLogo();
-            setMoney(prevMoney => prevMoney - 50)
-            setClickValue(prevClickValue => prevClickValue + 50)
+            setLogo();
+            setPlayerData(prev =>  ({
+                ...prev,
+                money:prev.money - 50,
+            }))
         }
     }
     
     return (
         <>
-            <h2>${money}</h2>
-            <button onClick={click}>count is {count}</button>
-            <button onClick={buyIncrease} className={money > 10 && count > 10? "purchasable" : "hidden"}>Purchase Speed for $10</button>
-            <button onClick={buyLogo} className={money >  50 && count > 50 ? "purchasable" : "hidden"}>Buy Logo FOR $50</button>
-            <button onClick={buySpin} className={money > 100 && count > 100 ? "purchasable" : "hidden"}>Purchase SPIN for $100</button>
+            <h2>${playerData.money}</h2>
+            <button onClick={click}>count is {playerData.count}</button>
+            <button onClick={buyIncrease} className={playerData.money > 10 && playerData.count > 10? "purchasable" : "hidden"}>Purchase Speed for $10</button>
+            <button onClick={buyLogo} className={playerData.money >  50 && playerData.count > 50 ? "purchasable" : "hidden"}>Buy Logo FOR $50</button>
+            <button onClick={buySpin} className={playerData.money > 100 && playerData.count > 100 ? "purchasable" : "hidden"}>Purchase SPIN for $100</button>
         </>
     );
 }

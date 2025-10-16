@@ -11,11 +11,17 @@ function App() {
   // const [count, setCount] = useState(0)
 
   const [countLogo, setCountLogo] = useState(0);
-  const [logoArray, setLogoArray] = useState([viteLogo, reactLogo, vueLogo]);
+  const [logoArray, setLogoArray] = useState([]);
   const [spining, setSpin] = useState(false);
 
-function updateCountLogo() {
-    setCountLogo(prev => Math.min(prev + 1, logoArray.length));
+  function updateCountLogo() {
+    setCountLogo(prev => {
+      const nextCount = Math.min(prev + 1, 3);
+      if (nextCount === 1) setLogoArray([viteLogo]);
+      else if (nextCount === 2) setLogoArray([viteLogo, reactLogo]);
+      else if (nextCount === 3) setLogoArray([viteLogo, reactLogo, vueLogo]);
+      return nextCount;
+    });
   }
 
   function updateSpin() {
@@ -26,7 +32,7 @@ function updateCountLogo() {
     <>
       <Header/>
       <div>
-        {logoArray.slice(0, countLogo).map((logo, i) => (
+        {logoArray.map((logo, i) => (
           <img key={i} src={logo} className= {`logo ${spining ? "spin" : ""}`} alt={`logo-${i}`} />
         ))}
       </div>
@@ -36,13 +42,7 @@ function updateCountLogo() {
           setCountLogo = {updateCountLogo}
           setSpin = {updateSpin}
         />
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
       <Footer/>
 
     </>
