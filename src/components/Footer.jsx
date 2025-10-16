@@ -1,5 +1,8 @@
-export default function Header() {
+export default function Footer() {
     return (
-        <footer>&copy;2025 Ash & Daniel</footer>>
+        <footer>
+            <p>&copy;2025 Ash & Daniel</p>
+
+        </footer>>
     )
 }
