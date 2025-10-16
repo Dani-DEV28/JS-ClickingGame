@@ -13,6 +13,10 @@ function App() {
   const [countLogo, setCountLogo] = useState(0);
   const logoArray = [viteLogo, reactLogo, vueLogo];
 
+  function updateCountLogo() {
+    setCountLogo(prev => prev + 1);
+  }
+
   return (
     <>
       <Header/>
@@ -24,7 +28,7 @@ function App() {
       <h1>Vite + React</h1>
       <div className="card">
         <Game
-          setCountLogo = {setCountLogo} 
+          setCountLogo = {updateCountLogo} 
         />
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
