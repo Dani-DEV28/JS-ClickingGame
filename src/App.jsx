@@ -12,9 +12,14 @@ function App() {
 
   const [countLogo, setCountLogo] = useState(0);
   const logoArray = [viteLogo, reactLogo, vueLogo];
+  const [spining, setSpin] = useState(false);
 
   function updateCountLogo() {
     setCountLogo(prev => prev + 1);
+  }
+
+  function updateSpin() {
+    setSpin(prev => !prev);
   }
 
   return (
@@ -22,13 +27,14 @@ function App() {
       <Header/>
       <div>
         {logoArray.slice(0, countLogo).map((logo, i) => (
-          <img key={i} src={logo} className="logo" alt={`logo-${i}`} />
+          <img key={i} src={logo} className= {`logo ${spining ? "spin" : ""}`} alt={`logo-${i}`} />
         ))}
       </div>
       <h1>Vite + React</h1>
       <div className="card">
         <Game
-          setCountLogo = {updateCountLogo} 
+          setCountLogo = {updateCountLogo}
+          setSpin = {updateSpin}
         />
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
