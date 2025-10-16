@@ -9,8 +9,8 @@ export default function Game(props) {
 
     return (
         <>
-            <p>{count}</p>
-            <button onClick={click}>Click</button>
+            {/* <p>{count}</p> */}
+            <button onClick={click}>count is {count}</button>
         </>
     )
 }
