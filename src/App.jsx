@@ -11,11 +11,11 @@ function App() {
   // const [count, setCount] = useState(0)
 
   const [countLogo, setCountLogo] = useState(0);
-  const logoArray = [viteLogo, reactLogo, vueLogo];
+  const [logoArray, setLogoArray] = useState([viteLogo, reactLogo, vueLogo]);
   const [spining, setSpin] = useState(false);
 
-  function updateCountLogo() {
-    setCountLogo(prev => prev + 1);
+function updateCountLogo() {
+    setCountLogo(prev => Math.min(prev + 1, logoArray.length));
   }
 
   function updateSpin() {
@@ -43,7 +43,9 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <button onClick = {addLogo}> </>
       <Footer/>
+
     </>
   )
 }
