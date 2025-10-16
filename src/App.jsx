@@ -20,7 +20,7 @@ function App() {
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react, spin" alt="React logo"/>
         </a>
-        <img src={vueLogo} className="logo react, spin" alt="React logo"/>
+        {/* <img src={vueLogo} className= {`logo react ${false ? "spin" : ""}`} alt="React logo"/> */}
       </div>
       <h1>Vite + React</h1>
       <div className="card">
