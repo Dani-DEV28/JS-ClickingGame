@@ -2,11 +2,12 @@ import {useState} from 'react'
 import Click from './Click';
 // import BuyIncrease from './BuyIncrease'
 // import BuyLogo from './BuyLogo'
-// import BuySpin from './BuySpin'
+import SpinButton from './spinButton'
 import IncreaseButton from './increaseButton';
-import ResetButton from './resetButton';
+// import ResetButton from './resetButton';
+import LogoButton from './logoButton';
 
-export default function Game( {setCountLogo, setSpin, resetLogo}) {
+export default function Game( {setCountLogo, setSpin, spining}) {
     const [playerData, setPlayerData] = useState({
         money:0,
         count: 0,
@@ -22,27 +23,6 @@ export default function Game( {setCountLogo, setSpin, resetLogo}) {
     //         }))
     //     }
     // }
-
-    function buySpin() {
-        if (playerData.money > 100) {
-            setSpin();
-            setPlayerData(prev =>  ({
-                ...prev,
-                money:prev.money - 100
-            }))
-        }
-    }
-
-    function buyLogo() {
-        if (playerData.money > 50) {
-            setCountLogo();
-            // setLogo();
-            setPlayerData(prev =>  ({
-                ...prev,
-                money:prev.money - 50,
-            }))
-        }
-    }
     
     return (
         <>
@@ -58,15 +38,23 @@ export default function Game( {setCountLogo, setSpin, resetLogo}) {
                 playerData = {playerData}
             />
             
-            <button onClick={buyLogo} className={playerData.money >  50 && playerData.count > 50 ? "purchasable" : "hidden"}>Buy Logo FOR $50</button>
-            
-            <button onClick={buySpin} className={playerData.money > 100 && playerData.count > 100 ? "purchasable" : "hidden"}>Purchase SPIN for $100</button>
-{/* 
+            <LogoButton 
+                setPlayerData={setPlayerData}
+                playerData={playerData}
+                setCountLogo={setCountLogo}
+            />
+            {/* 
             <ResetButton
                 setPlayerData = {setPlayerData}
                 playerData = {playerData}
                 resetLogo = {resetLogo}
             /> */}
+            <SpinButton 
+                setPlayerData = {setPlayerData}
+                playerData = {playerData}
+                setSpin = {setSpin}
+                spining = {spining}
+            />
         </>
     );
 }

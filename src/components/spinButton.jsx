@@ -1,15 +1,17 @@
-export default function Click({setPlayerData, playerData}) {
-    function handleClick() {
-        setPlayerData(prev =>  ({
-            ...prev,
-            money:prev.money + prev.clickValue,
-            count:prev.count + prev.clickValue
-        }))
+export default function SpinButton({setPlayerData, playerData, setSpin, spining}) {
+    function buySpin() {
+        if (playerData.money > 100) {
+            setSpin();
+            setPlayerData(prev =>  ({
+                ...prev,
+                money:prev.money - 100
+            }))
+        }
     }
 
     return (
         <>  
-            <button onClick={handleClick}>count is {playerData.count}</button>
+            <button onClick={buySpin} className={playerData.money > 100 && playerData.count > 100 ? "purchasable" : "hidden"}>Purchase {spining ? "UNSPIN" : "SPIN"} for $100</button>
         </>
     )
 }
