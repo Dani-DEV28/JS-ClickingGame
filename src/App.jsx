@@ -42,6 +42,7 @@ function App() {
         <Game
           setCountLogo = {updateCountLogo}
           setSpin = {updateSpin}
+          spining = {spining}
         />
       </div>
       <Footer/>
