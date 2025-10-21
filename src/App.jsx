@@ -5,7 +5,7 @@ import vueLogo from './assets/vue-js.svg'
 import Game from './components/Game'
 import Footer from './components/Footer'
 import Header from './components/Header'
-import logoGenerator from './components/logoGenerator'
+import LogoGenerator from './components/logoGenerator'
 import './App.css'
 
 function App() {
@@ -32,12 +32,11 @@ function App() {
   return (
     <>
       <Header/>
-      <logoGenerator 
+      <LogoGenerator 
         logoArray = {logoArray}
         spining = {spining}
       />
-      {console.log("LogoDisplay props:", logoArray, spining)}
-
+      {/* {console.log("LogoDisplay props:", logoArray, spining)} */}
       <h1>Vite + React</h1>
       <div className="card">
         <Game
@@ -46,7 +45,6 @@ function App() {
         />
       </div>
       <Footer/>
-
     </>
   )
 }
