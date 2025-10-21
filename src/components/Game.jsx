@@ -2,7 +2,7 @@ import {useState} from 'react'
 import Click from './Click';
 // import BuyIncrease from './BuyIncrease'
 // import BuyLogo from './BuyLogo'
-// import BuySpin from './BuySpin'
+import SpinButton from './spinButton'
 import IncreaseButton from './increaseButton';
 
 export default function Game( {setCountLogo, setSpin}) {
@@ -22,15 +22,7 @@ export default function Game( {setCountLogo, setSpin}) {
     //     }
     // }
 
-    function buySpin() {
-        if (playerData.money > 100) {
-            setSpin();
-            setPlayerData(prev =>  ({
-                ...prev,
-                money:prev.money - 100
-            }))
-        }
-    }
+
 
     function buyLogo() {
         if (playerData.money > 50) {
@@ -59,7 +51,11 @@ export default function Game( {setCountLogo, setSpin}) {
             
             <button onClick={buyLogo} className={playerData.money >  50 && playerData.count > 50 ? "purchasable" : "hidden"}>Buy Logo FOR $50</button>
             
-            <button onClick={buySpin} className={playerData.money > 100 && playerData.count > 100 ? "purchasable" : "hidden"}>Purchase SPIN for $100</button>
+            <SpinButton 
+                setPlayerData = {setPlayerData}
+                playerData = {playerData}
+                setSpin = {setSpin}
+            />
         </>
     );
 }
