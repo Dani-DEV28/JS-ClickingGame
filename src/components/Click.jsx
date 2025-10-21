@@ -5,7 +5,7 @@ export default function Click({setPlayerData, playerData}) {
         setPlayerData(prev =>  ({
             ...prev,
             money:prev.money + prev.clickValue,
-            count:prev.count + prev.clickValue
+            count:prev.count + prev.clickValue,
         }))
     }
 

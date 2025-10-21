@@ -4,8 +4,9 @@ import Click from './Click';
 // import BuyLogo from './BuyLogo'
 // import BuySpin from './BuySpin'
 import IncreaseButton from './increaseButton';
+import ResetButton from './resetButton';
 
-export default function Game( {setCountLogo, setSpin}) {
+export default function Game( {setCountLogo, setSpin, resetLogo}) {
     const [playerData, setPlayerData] = useState({
         money:0,
         count: 0,
@@ -60,6 +61,12 @@ export default function Game( {setCountLogo, setSpin}) {
             <button onClick={buyLogo} className={playerData.money >  50 && playerData.count > 50 ? "purchasable" : "hidden"}>Buy Logo FOR $50</button>
             
             <button onClick={buySpin} className={playerData.money > 100 && playerData.count > 100 ? "purchasable" : "hidden"}>Purchase SPIN for $100</button>
+{/* 
+            <ResetButton
+                setPlayerData = {setPlayerData}
+                playerData = {playerData}
+                resetLogo = {resetLogo}
+            /> */}
         </>
     );
 }
