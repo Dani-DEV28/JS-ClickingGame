@@ -1,4 +1,4 @@
-export default function Click({setPlayerData, playerData, setSpin}) {
+export default function SpinButton({setPlayerData, playerData, setSpin}) {
     function buySpin() {
         if (playerData.money > 100) {
             setSpin();

@@ -4,6 +4,7 @@ import Click from './Click';
 // import BuyLogo from './BuyLogo'
 import SpinButton from './spinButton'
 import IncreaseButton from './increaseButton';
+import LogoButton from './logoButton';
 
 export default function Game( {setCountLogo, setSpin}) {
     const [playerData, setPlayerData] = useState({
@@ -21,19 +22,6 @@ export default function Game( {setCountLogo, setSpin}) {
     //         }))
     //     }
     // }
-
-
-
-    function buyLogo() {
-        if (playerData.money > 50) {
-            setCountLogo();
-            // setLogo();
-            setPlayerData(prev =>  ({
-                ...prev,
-                money:prev.money - 50,
-            }))
-        }
-    }
     
     return (
         <>
@@ -49,7 +37,11 @@ export default function Game( {setCountLogo, setSpin}) {
                 playerData = {playerData}
             />
             
-            <button onClick={buyLogo} className={playerData.money >  50 && playerData.count > 50 ? "purchasable" : "hidden"}>Buy Logo FOR $50</button>
+            <LogoButton 
+                setPlayerData={setPlayerData}
+                playerData={playerData}
+                setCountLogo={setCountLogo}
+            />
             
             <SpinButton 
                 setPlayerData = {setPlayerData}

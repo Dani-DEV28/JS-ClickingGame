@@ -1,15 +1,18 @@
-export default function Click({setPlayerData, playerData}) {
-    function handleClick() {
-        setPlayerData(prev =>  ({
-            ...prev,
-            money:prev.money + prev.clickValue,
-            count:prev.count + prev.clickValue
-        }))
+export default function LogoButton({setPlayerData, playerData, setCountLogo}) {
+    function buyLogo() {
+        if (playerData.money > 50) {
+            setCountLogo();
+            // setLogo();
+            setPlayerData(prev =>  ({
+                ...prev,
+                money:prev.money - 50,
+            }))
+        }
     }
 
     return (
         <>  
-            <button onClick={handleClick}>count is {playerData.count}</button>
+            <button onClick={buyLogo} className={playerData.money >  50 && playerData.count > 50 ? "purchasable" : "hidden"}>Buy Logo FOR $50</button>
         </>
     )
 }
