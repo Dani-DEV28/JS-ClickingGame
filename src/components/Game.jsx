@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-export default function Game( {setCountLogo, setSpin, setLogo}) {
+export default function Game( {setCountLogo, setSpin}) {
     const [playerData, setPlayerData] = useState({
         money:0,
         count: 0,
@@ -38,7 +38,7 @@ export default function Game( {setCountLogo, setSpin, setLogo}) {
     function buyLogo() {
         if (playerData.money > 50) {
             setCountLogo();
-            setLogo();
+            // setLogo();
             setPlayerData(prev =>  ({
                 ...prev,
                 money:prev.money - 50,
