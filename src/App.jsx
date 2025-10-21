@@ -29,6 +29,12 @@ function App() {
     setSpin(prev => !prev);
   }
 
+  function resetLogos() {
+    setCountLogo(0);  
+    setLogoArray([]);
+    setSpin(false);
+  }
+
   return (
     <>
       <Header/>
@@ -42,6 +48,7 @@ function App() {
         <Game
           setCountLogo = {updateCountLogo}
           setSpin = {updateSpin}
+          resetLogos={resetLogos}
         />
       </div>
       <Footer/>
