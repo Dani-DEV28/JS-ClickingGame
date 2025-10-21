@@ -3,6 +3,7 @@ import Click from './Click';
 // import BuyIncrease from './BuyIncrease'
 // import BuyLogo from './BuyLogo'
 // import BuySpin from './BuySpin'
+import IncreaseButton from './increaseButton';
 
 export default function Game( {setCountLogo, setSpin}) {
     const [playerData, setPlayerData] = useState({
@@ -11,15 +12,15 @@ export default function Game( {setCountLogo, setSpin}) {
         clickValue: 1,
     })
 
-    function buyIncrease() {
-        if (playerData.money > 10) {
-            setPlayerData(prev =>  ({
-                ...prev,
-                money:prev.money - 10,
-                clickValue:prev.clickValue + 10
-            }))
-        }
-    }
+    // function buyIncrease() {
+    //     if (playerData.money > 10) {
+    //         setPlayerData(prev =>  ({
+    //             ...prev,
+    //             money:prev.money - 10,
+    //             clickValue:prev.clickValue + 10
+    //         }))
+    //     }
+    // }
 
     function buySpin() {
         if (playerData.money > 100) {
@@ -51,7 +52,10 @@ export default function Game( {setCountLogo, setSpin}) {
                 playerData = {playerData}
             />
             
-            <button onClick={buyIncrease} className={playerData.money > 10 && playerData.count > 10? "purchasable" : "hidden"}>Purchase Speed for $10</button>
+            <IncreaseButton
+                setPlayerData = {setPlayerData}
+                playerData = {playerData}
+            />
             
             <button onClick={buyLogo} className={playerData.money >  50 && playerData.count > 50 ? "purchasable" : "hidden"}>Buy Logo FOR $50</button>
             
