@@ -1,4 +1,4 @@
-export default function LogoButton({setPlayerData, playerData, setCountLogo}) {
+export default function logoButton({setPlayerData, playerData, setCountLogo}) {
     function buyLogo() {
         if (playerData.money > 50) {
             setCountLogo();

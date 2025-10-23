@@ -1,4 +1,4 @@
-function LogoGenerator({ logoArray, spining }) {
+export default function logoGenerator({ logoArray, spining }) {
     return(      
         <div>
             {logoArray.map((logo, i) => (
@@ -7,5 +7,3 @@ function LogoGenerator({ logoArray, spining }) {
         </div>
     );
 }
-
-export default LogoGenerator;

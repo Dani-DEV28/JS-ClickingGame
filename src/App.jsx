@@ -5,7 +5,7 @@ import vueLogo from './assets/vue-js.svg'
 import Game from './components/Game'
 import Footer from './components/Footer'
 import Header from './components/Header'
-import LogoGenerator from './components/logoGenerator'
+import logoGenerator from './components/logoGenerator'
 import './App.css'
 
 function App() {
@@ -29,16 +29,16 @@ function App() {
     setSpin(prev => !prev);
   }
 
-  function resetLogos() {
-    setCountLogo(0);  
-    setLogoArray([]);
-    setSpin(false);
-  }
+  // function resetLogos() {
+  //   setCountLogo(0);  
+  //   setLogoArray([]);
+  //   setSpin(false);
+  // }
 
   return (
     <>
       <Header/>
-      <LogoGenerator 
+      <logoGenerator 
         logoArray = {logoArray}
         spining = {spining}
       />
@@ -48,11 +48,7 @@ function App() {
         <Game
           setCountLogo = {updateCountLogo}
           setSpin = {updateSpin}
-<<<<<<< HEAD
-          resetLogos={resetLogos}
-=======
           spining = {spining}
->>>>>>> b81a4309921360b8b8ca3b75a7dbe88afa4f546d
         />
       </div>
       <Footer/>
