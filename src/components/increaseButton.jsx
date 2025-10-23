@@ -3,7 +3,6 @@ export default function IncreaseButton({setPlayerData, playerData}) {
         console.log(playerData)
         if (playerData.money > 10) {
             setPlayerData(prev =>  ({
-                ...prev,
                 money:prev.money - 10,
                 clickValue:prev.clickValue - 10
             }))
