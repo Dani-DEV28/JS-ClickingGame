@@ -5,7 +5,7 @@ export default function IncreaseButton({setPlayerData, playerData}) {
             setPlayerData(prev =>  ({
                 ...prev,
                 money:prev.money - 10,
-                clickValue:prev.clickValue + 10
+                clickValue:prev.clickValue - 10
             }))
         }
     }

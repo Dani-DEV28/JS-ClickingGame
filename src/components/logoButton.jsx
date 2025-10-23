@@ -6,6 +6,7 @@ export default function logoButton({setPlayerData, playerData, setCountLogo}) {
             setPlayerData(prev =>  ({
                 ...prev,
                 money:prev.money - 50,
+                clickValue:prev.clickValue + 10
             }))
         }
     }

@@ -4,7 +4,8 @@ export default function SpinButton({setPlayerData, playerData, setSpin, spining}
             setSpin();
             setPlayerData(prev =>  ({
                 ...prev,
-                money:prev.money - 100
+                money:prev.money - 100,
+                clickValue:prev.clickValue + 10
             }))
         }
     }
