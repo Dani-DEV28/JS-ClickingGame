@@ -5,7 +5,7 @@ import Click from './Click';
 import SpinButton from './spinButton'
 import IncreaseButton from './increaseButton';
 // import ResetButton from './resetButton';
-import LogoButton from './logoButton';
+import logoButton from './logoButton';
 
 export default function Game( {setCountLogo, setSpin, spining}) {
     const [playerData, setPlayerData] = useState({
@@ -38,7 +38,7 @@ export default function Game( {setCountLogo, setSpin, spining}) {
                 playerData = {playerData}
             />
             
-            <LogoButton 
+            <logoButton 
                 setPlayerData={setPlayerData}
                 playerData={playerData}
                 setCountLogo={setCountLogo}
